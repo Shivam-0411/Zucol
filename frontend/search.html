@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Employee</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+   <div class="navbar">
+        <h1><a href="index.html">Zucol EM</a></h1>
+        <ul>
+            <li class="active"><a href="index.html">Home</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="search.html">Search</a></li>
+            <li><a href="update.html">Update</a></li>
+            <li><a href="report.html">Reports</a></li>
+        </ul>
+    </div>
+
+    <div class="searchContainer">
+        <h1>Find an Employee</h1>
+        <p class="description">To make your search easy, you can choose how you want to find an employee. Select an option below to get started:</p>
+    
+        <div class="option-container">
+            <label for="employee_id">🔍 Search by Employee ID</label>
+            <input type="text" id="employee_id" name="employee_id" class="input-field" placeholder="Enter Employee ID (e.g., 12345)">
+        </div>
+    
+        <div class="divisor">
+            <hr> 
+            <p>or</p>
+            <hr>
+        </div>
+    
+        <div class="option-container">
+            <label for="first_name" class="multi-input-label">🔍 Search using First and Last Name</label>
+            <div class="flex-row">
+                <input type="text" id="first_name" name="first_name" class="input-field" placeholder="Enter First Name (e.g., John)">
+                <input type="text" id="last_name" name="last_name" class="input-field" placeholder="Enter Last Name (e.g., Doe)">
+            </div>
+        </div>
+    
+        <div style="text-align: center;">
+            <button type="submit" class="search-button" onclick="searchEmployee()">Search</button>
+        </div>
+    </div>
+
+    <div id="employeeModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">x</span>
+            <div class="employee-card">
+                <h2>Employee Details</h2>
+                <div class="employee-info">
+                    <div class="employee-field">
+                        <span class="field-label">Employee ID:</span>
+                        <span id="emp-id"></span>
+                    </div>
+                    <div class="employee-field">
+                        <span class="field-label">Employee Name:</span>
+                        <span id="emp-name" class="editable"></span>
+                    </div>
+                    <div class="employee-field">
+                        <span class="field-label">Phone:</span>
+                        <span id="emp-phone" class="editable"></span>
+                    </div>
+                    <div class="employee-field">
+                        <span class="field-label">DOB:</span>
+                        <span id="emp-dob" class="editable"></span>
+                    </div>
+                    <div class="employee-field">
+                        <span class="field-label">Address:</span>
+                        <span id="emp-address" class="editable"></span>
+                    </div>
+                    <div class="employee-field">
+                        <span class="field-label">Gender:</span>
+                        <span id="emp-gender" class="editable"></span>
+                    </div>
+                    <div class="employee-field">
+                        <span class="field-label">Department:</span>
+                        <span id="emp-dept" class="editable"></span>
+                    </div>
+                    <div class="employee-field">
+                        <span class="field-label">Salary:</span>
+                        <span id="emp-salary" class="editable"></span>
+                    </div>
+                </div>
+                <button id="edit-button" onclick="enableEdit()">Edit User</button>
+                <button id="save-button" onclick="saveChanges()" style="display: none;">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
